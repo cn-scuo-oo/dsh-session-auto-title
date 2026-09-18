@@ -37,12 +37,14 @@ SessionAlreadyOwnedError: 会话正被运行中的 Harness 独占
 
 ## 安装
 
-1. 把本目录放进任意位置，作为 profile 的本地依赖：
+1. 把本目录放进任意位置，作为 profile 的本地依赖（profile 用 npm 还是 pnpm，就用对应命令）：
 
    ```bash
    cd ~/.dsh/profiles/<profile>
-   npm i file:/absolute/path/to/dsh-session-auto-title
+   pnpm add file:/absolute/path/to/dsh-session-auto-title   # 或 npm i file:/...
    ```
+
+   > `file:` 依赖会被**拷贝**进 `node_modules`（不是软链；本机 desktop profile 是 pnpm + hoisted linker，实测得到的是拷贝）。所以改完源目录必须重跑一次上面的安装命令，profile 才会看到新代码。
 
 2. 在同一个 profile 的 `package.json` 里把插件加进 bundle 列表：
 
@@ -51,6 +53,15 @@ SessionAlreadyOwnedError: 会话正被运行中的 Harness 独占
    ```
 
 3. 重启客户端。插件自带的 `cordis.patch.yml` 会自动禁用内置的 `session-title-llm` provider 并插入本 provider（`ctx.sessionTitle` 只接受一个 provider 注册）。
+
+### 发布到 npm（可选）
+
+本包没有 `private` 守卫，`files` 白名单只含 `lib` 与 `cordis.patch.yml`（`README`、`LICENSE`、`package.json` 由 npm 自动带上），可以直接发布。注意 `npm publish` 必须发到公共 registry，国内镜像（如 npmmirror）是只读的：
+
+```bash
+npm login
+npm publish --registry=https://registry.npmjs.org
+```
 
 ## 配置
 

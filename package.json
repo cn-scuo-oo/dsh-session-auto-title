@@ -1,7 +1,6 @@
 {
   "name": "dsh-session-auto-title",
   "version": "0.1.0",
-  "private": true,
   "description": "DSH plugin: refresh the session title in the MMDD｜类型｜主题 convention after every conversation turn.",
   "license": "MIT",
   "repository": {
