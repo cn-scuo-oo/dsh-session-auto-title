@@ -1,0 +1,12 @@
+# dsh-session-auto-title bundle patch.
+#
+# `ctx.sessionTitle` accepts exactly one provider registration, so the shipped
+# first-prompt provider stands down and the convention provider takes its seat.
+# The service itself (row `session-title`) is untouched: a manual rename still
+# pins a title and stops further automatic generation for that session.
+- id: session-title-llm
+  disabled: true
+
+- insert:
+    - id: session-auto-title
+      name: 'dsh-session-auto-title'
