@@ -3,6 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "description": "DSH plugin: refresh the session title in the MMDD｜类型｜主题 convention after every conversation turn.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cn-scuo-oo/dsh-session-auto-title.git"
+  },
+  "homepage": "https://github.com/cn-scuo-oo/dsh-session-auto-title#readme",
+  "bugs": {
+    "url": "https://github.com/cn-scuo-oo/dsh-session-auto-title/issues"
+  },
   "type": "module",
   "main": "lib/index.js",
   "exports": {
