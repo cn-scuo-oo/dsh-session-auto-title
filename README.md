@@ -79,4 +79,4 @@ SessionAlreadyOwnedError: 会话正被运行中的 Harness 独占
 
 ## 许可
 
-尚未指定（建议 MIT，待仓库 owner 决定）。
+[MIT](./LICENSE) © 2026 cn-scuo-oo。
